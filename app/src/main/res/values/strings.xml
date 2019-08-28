@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">pharmacy-app</string>
+    <string name="text_accounts">All Accounts</string>
+    <string name="hint_nom">Nom</string>
+    <string name="hint_prenom">Prenom</string>
+    <string name="hint_adresse">Adresse</string>
+    <string name="hint_sec_social">N° Securite Social</string>
+    <string name="hint_phone">N° Telephone</string>
+    <string name="text_register">Inscrire</string>
 </resources>
