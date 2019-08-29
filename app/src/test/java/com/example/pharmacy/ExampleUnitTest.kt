@@ -1,4 +1,4 @@
-package com.example.pharmacy_app
+package com.example.pharmacy
 
 import org.junit.Test
 
