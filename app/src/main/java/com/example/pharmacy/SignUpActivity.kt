@@ -18,8 +18,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+
         goToLogin.setOnClickListener {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
+            val intent = Intent(applicationContext, UpdatePasswordActivity::class.java)
             startActivity(intent)
         }
 
@@ -47,7 +48,10 @@ class SignUpActivity : AppCompatActivity() {
                         println(response.body())
                         val responseStatus = response.body()?.get("status").toString()
                         if (responseStatus=="200"){
-                            Toast.makeText(this@SignUpActivity,"user added", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@SignUpActivity,"we sent you a password in an SMS use for your first login", Toast.LENGTH_LONG).show()
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
+                            startActivity(intent)
+
                         } else {
                             Toast.makeText(this@SignUpActivity,"numero social or phone number already exists", Toast.LENGTH_LONG).show()
                         }

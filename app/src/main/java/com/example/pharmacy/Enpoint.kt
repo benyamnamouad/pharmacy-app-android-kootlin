@@ -22,4 +22,7 @@ interface Endpoint {
     @POST("api/login")
     fun login(@Body userCredential:JsonObject):Call<JsonObject>
 
+    @POST("api/updatePassword")
+    fun updatePassword(@Body userCredential:JsonObject):Call<JsonObject>
+
 }
