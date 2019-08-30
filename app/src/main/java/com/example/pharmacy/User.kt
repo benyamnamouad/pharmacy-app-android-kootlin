@@ -1,7 +1,7 @@
 package com.example.pharmacy
 
 data class User (
-    var nemuro_social:Int,
+    var numero_social:String,
     var nom:String,
     var prenom:String,
     var adress:String,

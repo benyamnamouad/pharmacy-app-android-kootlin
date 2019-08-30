@@ -1,5 +1,6 @@
 package com.example.pharmacy
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -11,6 +12,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,30 +30,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
-            var listTeam:List<User> = ArrayList<User>()
-            val call = RetrofitService.endpoint.getUsers()
-            call.enqueue(object : Callback<List<User>>{
+//            var listTeam:List<User> = ArrayList<User>()
+//            val call = RetrofitService.endpoint.getUsers()
+//            call.enqueue(object : Callback<List<User>>{
+//
+//                override fun onFailure(call: Call<List<User>>, t: Throwable) {
+//                    println(t.toString());
+//                    Toast.makeText(this@MainActivity," failed connecting server", Toast.LENGTH_LONG).show()
+//
+//                }
+//
+//                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+//                    if(response?.isSuccessful!!){
+//                        //getting teams
+//                        listTeam = response.body()!!
+//                        println(listTeam);
+//                    }
+//                    else {
+//                        Toast.makeText(this@MainActivity,response.errorBody().toString()+" error connecting server", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//
+//
+//
+//            })
 
-                override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                    println(t.toString());
-                    Toast.makeText(this@MainActivity," failed connecting server", Toast.LENGTH_LONG).show()
+            val intent = Intent(applicationContext, SignUpActivity::class.java)
+            startActivity(intent)
 
-                }
-
-                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-                    if(response?.isSuccessful!!){
-                        //getting teams
-                        listTeam = response.body()!!
-                        println(listTeam);
-                    }
-                    else {
-                        Toast.makeText(this@MainActivity,response.errorBody().toString()+" error connecting server", Toast.LENGTH_LONG).show()
-                    }
-                }
+//             var string = justTryingInput.text.toString().trim()
+//            println("hello there I am trying this thing $string")
 
 
 
-            })
+
         }
 
         val toggle = ActionBarDrawerToggle(
