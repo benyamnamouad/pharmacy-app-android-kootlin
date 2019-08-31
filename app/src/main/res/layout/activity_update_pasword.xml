@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+            android:text="Update Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6" android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="108dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+            android:text="Confirmer"
+            android:layout_width="193dp"
+
+            android:layout_height="wrap_content"
+            android:id="@+id/confirmPassword" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"/>
+    <android.support.design.widget.TextInputLayout
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp" app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:id="@+id/textInputLayout4">
+
+        <android.support.design.widget.TextInputEditText
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_password" android:id="@+id/textInputPassword"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            android:id="@+id/textInputLayout5">
+
+        <android.support.design.widget.TextInputEditText
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_confirm_password" android:id="@+id/textInputConfirmPassword"/>
+    </android.support.design.widget.TextInputLayout>
+    <TextView
+            android:text="You are seeing this screen because it's first login "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8" android:textSize="11sp" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+    <TextView
+            android:text="Please update your passwrd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9" android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+</android.support.constraint.ConstraintLayout>
