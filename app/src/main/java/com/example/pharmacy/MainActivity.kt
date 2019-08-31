@@ -108,6 +108,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_gallery -> {
 
+                val detailIntent = Intent(this, CitiesActivity::class.java)
+                // 3
+                startActivity(detailIntent)
             }
             R.id.nav_slideshow -> {
 

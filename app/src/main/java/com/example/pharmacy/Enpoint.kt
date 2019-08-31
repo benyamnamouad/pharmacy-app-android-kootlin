@@ -15,11 +15,13 @@ import retrofit2.http.Path
 interface Endpoint {
     @GET("api/getusers")
     fun getUsers():Call<List<User>>
-
     @POST("api/signup")
     fun signUp(@Body user:User):Call<JsonObject>
 
     @POST("api/login")
     fun login(@Body userCredential:JsonObject):Call<JsonObject>
+
+    @GET("/api/getwilayas")
+    fun getCities():Call<List<City>>
 
 }
