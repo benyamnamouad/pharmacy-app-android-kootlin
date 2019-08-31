@@ -50,10 +50,11 @@ class CitiesActivity : AppCompatActivity() {
 
             // 2
             val detailIntent = Intent(this, PharmaciesActivity::class.java)
-            detailIntent.putExtra("nom_wilaya",selectedCity.nom!!)
-            detailIntent.putExtra("id_wilaya",selectedCity.id!!)
 
-            // 3
+            detailIntent.putExtra("nom_wilaya",selectedCity.nom!!)
+
+                detailIntent.putExtra("id_wilaya", selectedCity.id!!.toString())
+
             startActivity(detailIntent)
         }
 

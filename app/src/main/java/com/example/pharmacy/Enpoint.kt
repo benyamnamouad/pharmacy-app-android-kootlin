@@ -25,8 +25,11 @@ interface Endpoint {
     @POST("api/login")
     fun login(@Body userCredential:JsonObject):Call<JsonObject>
 
-    @GET("/api/getwilayas")
+    @GET("api/getwilayas")
     fun getCities():Call<List<City>>
+
+    @GET("api/getPharmaciesByWilaya/{WilayaId}")
+    fun getPharmaciesByCity(@Path("WilayaId") WilayaId:String):Call<List<Pharmacy>>
 
     @POST("api/updatePassword")
     fun updatePassword(@Body userCredential:JsonObject):Call<JsonObject>
