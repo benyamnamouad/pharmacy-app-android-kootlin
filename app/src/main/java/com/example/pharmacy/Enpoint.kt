@@ -16,6 +16,9 @@ interface Endpoint {
     @GET("api/getusers")
     fun getUsers():Call<List<User>>
 
+    @GET("api/logout")
+    fun logout() : Call<JsonObject>
+
     @POST("api/signup")
     fun signUp(@Body user:User):Call<JsonObject>
 
