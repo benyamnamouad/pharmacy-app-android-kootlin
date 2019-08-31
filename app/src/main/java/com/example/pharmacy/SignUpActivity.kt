@@ -1,5 +1,6 @@
 package com.example.pharmacy
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -17,10 +18,8 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-
-
         goToLogin.setOnClickListener {
-            val intent = Intent(applicationContext, UpdatePasswordActivity::class.java)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -36,13 +35,12 @@ class SignUpActivity : AppCompatActivity() {
                 textInputNom.text.toString().trim(),
                 textInputPrenom.text.toString().trim(),
                 textInputAdresse.text.toString().trim(),
-                textInputPhone.text.toString().trim()))
+                textInputPhone.text.toString().trim(),""))
 
             call.enqueue(object:Callback<JsonObject> {
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                     println(t.toString());
                     Toast.makeText(this@SignUpActivity," failed connecting server", Toast.LENGTH_LONG).show()            }
-
                 override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                     if(response?.isSuccessful!!){
                         println(response.body())
@@ -51,12 +49,10 @@ class SignUpActivity : AppCompatActivity() {
                             Toast.makeText(this@SignUpActivity,"we sent you a password in an SMS use for your first login", Toast.LENGTH_LONG).show()
                             val intent = Intent(applicationContext, LoginActivity::class.java)
                             startActivity(intent)
-
+                            finish()
                         } else {
                             Toast.makeText(this@SignUpActivity,"numero social or phone number already exists", Toast.LENGTH_LONG).show()
                         }
-
-
                     }else {
                         Toast.makeText(this@SignUpActivity,response.errorBody().toString()+" error connecting server", Toast.LENGTH_LONG).show()
                     }

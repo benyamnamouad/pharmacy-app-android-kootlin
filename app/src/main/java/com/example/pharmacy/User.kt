@@ -5,5 +5,6 @@ data class User (
     var nom:String,
     var prenom:String,
     var adress:String,
-    var telephone:String
+    var telephone:String,
+    var isFirstAuth:String
 )

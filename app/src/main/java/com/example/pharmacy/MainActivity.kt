@@ -1,5 +1,6 @@
 package com.example.pharmacy
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -23,43 +24,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//            var listTeam:List<User> = ArrayList<User>()
-//            val call = RetrofitService.endpoint.getUsers()
-//            call.enqueue(object : Callback<List<User>>{
-//
-//                override fun onFailure(call: Call<List<User>>, t: Throwable) {
-//                    println(t.toString());
-//                    Toast.makeText(this@MainActivity," failed connecting server", Toast.LENGTH_LONG).show()
-//
-//                }
-//
-//                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-//                    if(response?.isSuccessful!!){
-//                        //getting teams
-//                        listTeam = response.body()!!
-//                        println(listTeam);
-//                    }
-//                    else {
-//                        Toast.makeText(this@MainActivity,response.errorBody().toString()+" error connecting server", Toast.LENGTH_LONG).show()
-//                    }
-//                }
-//
-//
-//
-//            })
 
+        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val loggedin = sharedPreferences.getString("loggedin","")
+        if(loggedin=="true"){
+            nav_lo
+        }
+
+        fab.setOnClickListener { view ->
             val intent = Intent(applicationContext, SignUpActivity::class.java)
             startActivity(intent)
-
-//             var string = justTryingInput.text.toString().trim()
-//            println("hello there I am trying this thing $string")
-
-
-
-
         }
 
         val toggle = ActionBarDrawerToggle(
@@ -100,7 +74,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_camera -> {
-                // Handle the camera action
+                println(" i im in the camera icon ")
             }
             R.id.nav_gallery -> {
 
@@ -111,10 +85,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_manage -> {
 
             }
-            R.id.nav_share -> {
+            R.id.nav_login -> {
 
             }
-            R.id.nav_send -> {
+            R.id.nav_signup -> {
+
+            }
+            R.id.nav_logout -> {
 
             }
         }

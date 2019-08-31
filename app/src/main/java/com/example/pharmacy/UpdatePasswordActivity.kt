@@ -1,5 +1,7 @@
 package com.example.pharmacy
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
@@ -20,9 +22,14 @@ class UpdatePasswordActivity : AppCompatActivity() {
         confirmPassword.setOnClickListener {
 
 
+            val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+            val userId = sharedPreferences.getString("user_id","")
+            println("printing the user is from the update password acitivyt $userId")
+
             val userCredentials = JsonObject()
-//            userCredentials.addProperty("user_id",inputTextPassword.text.toString().trim())
-            userCredentials.addProperty("user_id","1803")
+
+
+            userCredentials.addProperty("user_id",userId.trim())
             userCredentials.addProperty("password",textInputPassword.text.toString().trim())
             userCredentials.addProperty("c_password",textInputConfirmPassword.text.toString().trim())
             println("these are the user credentials: $userCredentials")
@@ -40,6 +47,9 @@ class UpdatePasswordActivity : AppCompatActivity() {
                         val responseStatus = response.body()?.get("status").toString()
                         if (responseStatus=="200"){
                             Toast.makeText(this@UpdatePasswordActivity,"password updated ", Toast.LENGTH_LONG).show()
+                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         } else {
                             Toast.makeText(this@UpdatePasswordActivity,"passwords don't match", Toast.LENGTH_LONG).show()
                         }
