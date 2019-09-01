@@ -18,4 +18,14 @@
     <string name="hint_password">Password</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="text_login">Login</string>
+
+
+    <string name="text_pharmacies">Pharmacies</string>
+
+    <string name="text_adress">Adress :</string>
+    <string name="text_from">From : </string>
+    <string name="text_to">To : </string>
+
+    <string name="text_launch_order">Order drugs</string>
+
 </resources>

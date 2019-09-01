@@ -35,6 +35,8 @@ class PharmaciesListAdapter (private val context: Context,
 
         val nomTextView = rowView.findViewById(R.id.nom) as TextView
 
+        val fromTextView = rowView.findViewById(R.id.fromTime)as TextView
+        val toTextView = rowView.findViewById(R.id.toTime)as TextView
 // Get subtitle element
         val telTextView = rowView.findViewById(R.id.tel) as TextView
 
@@ -44,8 +46,19 @@ class PharmaciesListAdapter (private val context: Context,
         val pharm = getItem(position) as Pharmacy
 
         nomTextView.text=pharm.nom
-        telTextView.text=" + "+pharm.telephone.toString()
+        if (pharm.telephone!=0) {
+            telTextView.text = " + 213 " + pharm.telephone.toString()
+        }else{
+            telTextView.text = " Aucun num tel disponible"
+        }
 
+        if(pharm.ouverture!=pharm.fermeture) {
+            fromTextView.text = pharm.ouverture
+            toTextView.text = pharm.fermeture
+        }else{
+            fromTextView.text="∞"
+            toTextView.text="∞"
+        }
 
 
         return rowView

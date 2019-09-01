@@ -6,5 +6,110 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".PharmacyDetailActivity">
-
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="234dp" app:srcCompat="@mipmap/drugs_image" android:id="@+id/imageView2"
+            tools:srcCompat="@mipmap/pharmacy_icon"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+    />
+    <TextView
+            android:text="pharmacy name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/nomPharmacy"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:textSize="30sp" android:textColor="@android:color/black" android:textStyle="bold"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/adressPharmacy"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/locationButton"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/pion_icon" android:id="@+id/locationButton"
+            android:background="@android:color/white"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/nomPharmacy"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/wilaya"
+            app:layout_constraintTop_toBottomOf="@+id/adressPharmacy"
+            app:layout_constraintStart_toStartOf="@+id/guideline" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/pion_icon" android:id="@+id/imageView5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:layout_marginEnd="8dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/locationButton" tools:srcCompat="@mipmap/time_icon"/>
+    <TextView
+            android:text="@string/text_from"
+            android:layout_width="50dp"
+            android:layout_height="20dp" android:id="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/guideline" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+    />
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/fromTime"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+            app:layout_constraintStart_toEndOf="@+id/textView15" android:layout_marginStart="8dp"/>
+    <TextView
+            android:text="@string/text_to"
+            android:layout_width="50dp"
+            android:layout_height="20dp" android:id="@+id/textView16"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" app:layout_constraintStart_toStartOf="@+id/guideline"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="@+id/imageView5"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/toTime"
+            app:layout_constraintStart_toEndOf="@+id/textView16" android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView16"/>
+    <TextView
+            android:text="+2135422473"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/phoneNumber"
+            app:layout_constraintTop_toTopOf="@+id/callingButton"
+            app:layout_constraintBottom_toBottomOf="@+id/callingButton"
+            app:layout_constraintStart_toStartOf="@+id/guideline" android:layout_marginStart="8dp"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/pion_icon"
+            android:id="@+id/callingButton"
+            android:background="@android:color/white" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline" tools:srcCompat="@mipmap/calling_icon"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/pion_icon"
+            android:id="@+id/facebookButton"
+            android:background="@android:color/white" app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:layout_marginEnd="8dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/callingButton" tools:srcCompat="@mipmap/facebook_icon"/>
+    <Button
+            android:text="@string/text_launch_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/orderButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:id="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="82dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="329dp"
+            app:layout_constraintHorizontal_bias="0.6" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintGuide_percent="0.2"/>
 </android.support.constraint.ConstraintLayout>

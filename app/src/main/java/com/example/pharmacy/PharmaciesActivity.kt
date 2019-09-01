@@ -1,5 +1,6 @@
 package com.example.pharmacy
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,12 +20,19 @@ class PharmaciesActivity : AppCompatActivity() {
 
         var listPharmacies:List<Pharmacy> = ArrayList<Pharmacy>()
 
+
+        var loggedIn:Boolean=false
+
+        // getting data from previous activity
+        var wilayaNom:String = intent.getStringExtra("nom_wilaya")
         var wilayaId:String = intent.getStringExtra("id_wilaya")
-        print("id is "+wilayaId)
+        println("wilaya selected is "+wilayaId)
+
+        // retrieving data from the server @:3000/getpharmaciesbycity
         val call = RetrofitService.endpoint.getPharmaciesByCity(wilayaId!!)
         call.enqueue(object : Callback<List<Pharmacy>> {
             override fun onFailure(call: Call<List<Pharmacy>>, t: Throwable) {
-                Toast.makeText(this@PharmaciesActivity,"   failed connecting server", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@PharmaciesActivity,"   failed connecting server :"+t.cause, Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<List<Pharmacy>>, response: Response<List<Pharmacy>>) {
@@ -51,6 +59,16 @@ class PharmaciesActivity : AppCompatActivity() {
             val detailIntent = Intent(this, PharmacyDetailActivity::class.java)
             detailIntent.putExtra("nom_pharmacy",selectedPharmacy.nom!!)
             detailIntent.putExtra("id_pharmacy",selectedPharmacy.id!!)
+            detailIntent.putExtra("adresse_pharmacy",selectedPharmacy.adresse!!)
+            detailIntent.putExtra("telephone_pharmacy",selectedPharmacy.telephone!!.toString())
+            detailIntent.putExtra("ouverture_pharmacy",selectedPharmacy.ouverture!!.toString())
+            detailIntent.putExtra("fermeture_pharmacy",selectedPharmacy.fermeture!!.toString())
+            detailIntent.putExtra("facebook_page_pharmacy",selectedPharmacy.facebook_page!!.toString())
+            detailIntent.putExtra("lat_pharmacy",selectedPharmacy.lat!!)
+            detailIntent.putExtra("lng_pharmacy",selectedPharmacy.lng!!)
+            detailIntent.putExtra("wilaya_pharmacy",wilayaNom)
+
+
 
             // 3
             startActivity(detailIntent)

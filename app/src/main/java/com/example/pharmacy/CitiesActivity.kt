@@ -53,6 +53,7 @@ class CitiesActivity : AppCompatActivity() {
 
             detailIntent.putExtra("nom_wilaya",selectedCity.nom!!)
 
+            //println("wilaya selected is : "+selectedCity.id!!.toString())
                 detailIntent.putExtra("id_wilaya", selectedCity.id!!.toString())
 
             startActivity(detailIntent)
